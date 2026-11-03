@@ -1,5 +1,5 @@
 const { Client } = require("discord.js");
-const { activityInterval, database } = require("../../../config.json")
+const { activityInterval } = require("../../../config.json")
 const mongoose = require('mongoose')
 
 module.exports = {
@@ -12,7 +12,9 @@ module.exports = {
   async execute(client) {
 
     /* Connect to database */
-    if(!database) return;
+    // Connection string comes from the environment (never committed).
+    const database = process.env.MONGODB_URI
+    if(!database) return console.warn("MONGODB_URI is not set; skipping database connection.");
     mongoose.connect(database, {}).then(() => console.log("The client is now connected to the database!")  
     ).catch((err) => console.error(err))
 

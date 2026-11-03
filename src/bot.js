@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { Client, Collection, GatewayIntentBits, Partials, EmbedBuilder } = require("discord.js");
 const { Guilds, GuildMembers, GuildMessages, GuildVoiceStates, DirectMessages, GuildMessageReactions, GuildEmojisAndStickers, GuildWebhooks, GuildIntegrations, MessageContent } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember, GuildScheduledEvent, Reaction } = Partials;
